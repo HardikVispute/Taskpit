@@ -64,6 +64,10 @@ Validate whether student-organization leaders prefer delegating tasks through th
   - Preserved all domain logic, task creation, reassignment, status transitions, and audit trail events.
 - **MCP Server Layer (`mcp/`):**
   - Standards-compliant MCP server over `stdio` transport.
+- **Source Control & GitHub Repository:**
+  - Initialized Git repository, staged all project files and comprehensive documentation while preserving secret isolation (`.env.local` strictly gitignored).
+  - Configured `main` branch and linked remote `https://github.com/HardikVispute/Taskpit.git`.
+  - Pushed initial commit (`7104ff0`) to `origin/main`.
 
 ## Tests and Verification
 The following checks were executed in the repository and passed cleanly with exit code 0:
