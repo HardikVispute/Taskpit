@@ -32,7 +32,9 @@ taskpit/
 │   └── layout.tsx                     # Root HTML layout, font preloads, theme init script
 ├── components/                        # UI presentation layer (RSC and Client components)
 │   ├── auth/                          # Authentication form components
-│   │   ├── google-button.tsx
+│   │   ├── auth-background-koi.tsx    # Calm 3D crystal koi WebGL background
+│   │   ├── auth-intro-panel.tsx       # Witty TaskPit product introduction right panel
+│   │   ├── google-button.tsx          # Sleek glass Google OAuth button
 │   │   ├── no-memberships-onboarding.tsx
 │   │   └── organization-selector.tsx
 │   ├── layout/                        # Application layout chrome & navigation
@@ -115,8 +117,30 @@ taskpit/
    - **Use Cases:** *Student Leaders*, *Engineering Teams*, *Core Committees*, *Autonomous AI Agents*.
    - **Footer:** TaskPit mission statement, platform links, legal bar, and ghosted `"TaskPit"` wordmark.
 
+## Authentication & Onboarding UI Redesign
+1. **Calm Atmospheric Background (`components/auth/auth-background-koi.tsx`):**
+   - Fixed, non-distracting background featuring a peaceful dusk lotus pond still plate with deep violet gradient overlay (`#0d0830` / `#0b0626`).
+   - 3D crystal koi fish rendered via Three.js with slow, calm undulation and breathing bobbing (`Math.sin(0.4 * elapsed) * 0.012`) in an unobtrusive upper-right resting pose. Respects `prefers-reduced-motion`.
+2. **Two-Panel Auth Layout (`app/login/page.tsx` and `app/register/page.tsx`):**
+   - **Left Panel (Authentication Form):**
+     - Floating purple orb logo and TaskPit wordmark (`Inter Tight` font).
+     - Google OAuth button (`components/auth/google-button.tsx`) styled in purple/violet glass with authentic multicolor icon.
+     - Subtle divider with "or continue with email".
+     - Soft glass input surfaces (`rounded-[12px]`, `border-[rgba(196,178,255,0.18)]`, focus ring glow).
+     - Gradient submit button (`#6f78ff` to `#8d94ff`) with smooth interactive feedback and loading spinners.
+     - Toggle link between Login and Register.
+     - Clear error banner with soft red glass styling.
+     - In `register`: includes Full Name, Email, Password, and Password confirmation; supports email verification pending screen.
+   - **Right Panel (TaskPit Introduction - `components/auth/auth-intro-panel.tsx`):**
+     - Witty, playful, and confident copy: *"Where chaotic group chats turn into shipped deliverables."*
+     - 4 core feature blocks: *Multi-Org Isolation*, *AI Delegation via MCP*, *Focused Inboxes*, *Receipts Included*.
+     - Free tier commitment: *100% Free for Student & Campus Communities*.
+     - Social proof testimonial quote from a campus tech council coordinator.
+3. **Harmonized Recovery Pages (`app/forgot-password/page.tsx` and `app/reset-password/page.tsx`):**
+   - Unified glassmorphic cards and purple/violet aesthetic, preserving all backend reset actions.
+
 ## Actual Executed Verification Results
 - **TypeScript Typecheck (`npm run typecheck`):** Passed with **0 errors**.
 - **ESLint Code Quality (`npm run lint`):** Passed with **0 errors, 0 warnings**.
 - **Vitest Full Test Suite (`npm test`):** **43 of 43 passed (0 failed)** across all 4 suites.
-- **Next.js Production Build (`npm run build`):** Clean compilation, all static and dynamic routes generated without errors.
+- **Next.js Production Build (`npm run build`):** Clean compilation, all static and dynamic routes (`/`, `/login`, `/register`, `/forgot-password`, `/reset-password`, `/select-org`, `/workspace`) generated without errors.
