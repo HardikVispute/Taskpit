@@ -20,6 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter+Tight:ital,wght@0,300..700;1,300..700&display=swap"
+          rel="stylesheet"
+        />
         <link
           rel="preload"
           href="/fonts/GlacialIndifference-Regular.woff2"
