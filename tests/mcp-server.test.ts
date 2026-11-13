@@ -2,9 +2,9 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { createMcpServer } from "@/mcp/server";
-import { createTestDb } from "@/lib/db";
-import { OrganizationService } from "@/lib/services/organization-service";
-import { tasks, taskEvents } from "@/lib/db/schema";
+import { createTestDb } from "@/server/db";
+import { OrganizationService } from "@/server/services/organization.service";
+import { tasks, taskEvents } from "@/server/db/schema";
 import { eq } from "drizzle-orm";
 
 interface McpToolResult {

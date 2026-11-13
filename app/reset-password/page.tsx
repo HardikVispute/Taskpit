@@ -4,8 +4,8 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { AlertCircle, ArrowRight, Lock, Check } from "lucide-react";
-import { updatePasswordAction } from "@/app/actions/auth";
+import { AlertCircle, ArrowRight, Check } from "lucide-react";
+import { updatePasswordAction } from "@/server/actions/auth.actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -45,115 +45,97 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center p-4 bg-background bg-cover bg-center relative"
-      style={{ backgroundImage: "url('/assets/backgrounds/auth-light.webp')" }}
-    >
-      <div className="absolute inset-0 bg-[#fafaf9]/85 dark:bg-[#121316]/90 backdrop-blur-[2px]" />
-      <div className="relative z-10 w-full max-w-sm py-10">
-        <div className="flex flex-col items-center text-center mb-7">
-          <Link href="/" className="inline-block mb-3.5 transition-opacity hover:opacity-85">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-background">
+      <div className="w-full max-w-[400px] border border-black dark:border-white bg-white dark:bg-black p-8 shadow-none">
+        <div className="flex flex-col items-center text-center mb-8 border-b border-neutral-200 dark:border-neutral-800 pb-6">
+          <Link
+            href="/"
+            className="mb-4 flex h-10 w-10 items-center justify-center border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black transition-colors"
+          >
             <Image
               src="/assets/brand/logo.svg"
               alt="TaskPit"
-              width={40}
-              height={40}
-              className="h-10 w-auto"
+              width={24}
+              height={24}
+              className="h-6 w-auto brightness-0 invert dark:invert-0"
               priority
             />
           </Link>
-          <h1 className="text-2xl font-semibold tracking-tight text-foreground">
-            Set new password
+          <h1 className="text-xl font-mono font-bold uppercase tracking-wider text-foreground">
+            Set New Password
           </h1>
-          <p className="text-xs text-muted-foreground mt-1 max-w-xs">
-            Choose a new secure password for your TaskPit account
+          <p className="text-xs font-mono text-neutral-500 mt-1">
+            Choose a new secure password
           </p>
         </div>
 
-        <div className="rounded-xl border border-border bg-card p-6 sm:p-7 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-          {isSuccess ? (
-            <div className="space-y-4 text-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary mx-auto mb-2">
-                <Check className="h-5 w-5" />
-              </div>
-              <p className="text-sm font-semibold text-foreground">Password updated</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Your password has been changed successfully. You can now sign in with your new credentials.
-              </p>
+        {isSuccess ? (
+          <div className="space-y-4 text-center">
+            <div className="flex h-10 w-10 items-center justify-center border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black mx-auto mb-2">
+              <Check className="h-5 w-5" />
+            </div>
+            <p className="text-sm font-mono font-bold uppercase text-foreground">Password Updated</p>
+            <p className="text-xs font-mono text-neutral-500 leading-relaxed">
+              Your password has been changed successfully. You can now sign in with your new credentials.
+            </p>
+            <div className="mt-6">
               <Button
-                onClick={() => {
-                  router.push("/login");
-                  router.refresh();
-                }}
-                className="w-full h-9 text-xs mt-4"
+                onClick={() => router.push("/login")}
+                className="w-full h-10"
               >
-                Go to Sign In
+                Proceed to Sign In
               </Button>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-3.5">
-              {errorMessage && (
-                <div className="flex items-start gap-2.5 rounded-lg border border-destructive/20 bg-destructive/5 p-3 text-xs text-destructive">
-                  <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
-                  <span>{errorMessage}</span>
-                </div>
-              )}
-
-              <div className="space-y-1">
-                <label className="text-xs font-medium text-foreground" htmlFor="password">
-                  New Password
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground/70" />
-                  <Input
-                    id="password"
-                    type="password"
-                    required
-                    placeholder="At least 6 characters"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-9 text-xs h-9"
-                    disabled={isPending}
-                  />
-                </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {errorMessage && (
+              <div className="mb-4 flex items-start gap-2 border border-black dark:border-white bg-neutral-100 dark:bg-neutral-900 p-3 text-xs font-mono text-foreground">
+                <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                <span>{errorMessage}</span>
               </div>
+            )}
 
-              <div className="space-y-1">
-                <label className="text-xs font-medium text-foreground" htmlFor="confirmPassword">
-                  Confirm New Password
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground/70" />
-                  <Input
-                    id="confirmPassword"
-                    type="password"
-                    required
-                    placeholder="Repeat your new password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="pl-9 text-xs h-9"
-                    disabled={isPending}
-                  />
-                </div>
-              </div>
-
-              <Button
-                type="submit"
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-mono font-semibold uppercase tracking-wider text-foreground" htmlFor="password">
+                New Password
+              </label>
+              <Input
+                id="password"
+                type="password"
+                required
+                placeholder="At least 6 characters"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 disabled={isPending}
-                className="w-full h-9 font-medium text-xs flex items-center justify-center gap-1.5 mt-3"
-              >
-                <span>{isPending ? "Updating password..." : "Update Password"}</span>
-                {!isPending && <ArrowRight className="h-3.5 w-3.5" />}
-              </Button>
+              />
+            </div>
 
-              <div className="pt-2 text-center text-xs">
-                <Link href="/login" className="text-muted-foreground hover:text-foreground">
-                  Back to Sign In
-                </Link>
-              </div>
-            </form>
-          )}
-        </div>
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-mono font-semibold uppercase tracking-wider text-foreground" htmlFor="confirmPassword">
+                Confirm New Password
+              </label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                required
+                placeholder="Repeat your new password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                disabled={isPending}
+              />
+            </div>
+
+            <Button
+              type="submit"
+              disabled={isPending}
+              className="w-full h-10 mt-2"
+            >
+              <span>{isPending ? "Updating..." : "Update Password"}</span>
+              {!isPending && <ArrowRight className="h-3.5 w-3.5" />}
+            </Button>
+          </form>
+        )}
       </div>
     </div>
   );

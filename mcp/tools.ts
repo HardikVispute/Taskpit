@@ -1,10 +1,10 @@
 import { z } from "zod";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { TaskService } from "@/lib/services/task-service";
-import { OrganizationService } from "@/lib/services/organization-service";
-import { ActorContext } from "@/lib/types/auth";
-import { DomainError } from "@/lib/errors";
-import { getDb } from "@/lib/db";
+import { TaskService } from "@/server/services/task.service";
+import { OrganizationService } from "@/server/services/organization.service";
+import { ActorContext } from "@/shared/types/auth.types";
+import { DomainError } from "@/shared/errors";
+import { getDb } from "@/server/db";
 
 const taskStatusEnum = z.enum([
   "open",

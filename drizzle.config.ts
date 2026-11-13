@@ -48,7 +48,7 @@ if (!connectionString && process.argv.includes("migrate")) {
 }
 
 export default defineConfig({
-  schema: "./lib/db/schema.ts",
+  schema: "./server/db/schema.ts",
   out: "./drizzle",
   dialect: "postgresql",
   dbCredentials: {

@@ -1,10 +1,11 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
-import { UserService } from "@/lib/services/user-service";
-import { ACTIVE_ORG_COOKIE } from "@/lib/auth/session";
+import { createClient } from "@/server/auth/supabase-server";
+import { UserService } from "@/server/services/user.service";
+import { ACTIVE_ORG_COOKIE } from "@/server/auth/session";
 import { OrganizationSelector } from "@/components/auth/organization-selector";
 import { NoMembershipsOnboarding } from "@/components/auth/no-memberships-onboarding";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +24,10 @@ export default async function SelectOrgPage() {
 
   if (memberships.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+      <div className="relative min-h-screen flex items-center justify-center p-4 bg-background">
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
         <NoMembershipsOnboarding
           displayName={profile.displayName}
           email={profile.email}
@@ -36,7 +40,10 @@ export default async function SelectOrgPage() {
   const activeOrgId = cookieStore.get(ACTIVE_ORG_COOKIE)?.value || memberships[0].organizationId;
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+    <div className="relative min-h-screen flex items-center justify-center p-4 bg-background">
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
       <OrganizationSelector
         memberships={memberships}
         activeOrgId={activeOrgId}
@@ -46,4 +53,3 @@ export default async function SelectOrgPage() {
     </div>
   );
 }
-

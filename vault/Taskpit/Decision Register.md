@@ -21,6 +21,7 @@ This register captures the current decisions established during the TaskPit disc
 | D9 | Identity & multi-org model | One TaskPit account across many organization memberships. Roles (leader, member, volunteer) are strictly scoped per organization membership. | Confirmed |
 | D10 | Authentication provider | Supabase Auth owns credentials and session refresh; TaskPit PostgreSQL maps user profile and organization memberships. | Confirmed |
 | D11 | Organization onboarding policy | Users without memberships see a dedicated onboarding state. No automatic leader rights or unverified organization access are granted without leader invitation. | Confirmed |
+| D12 | Design System & UI Direction | Strict Minimalist Monochrome Design System: Pure black & white palette, sharp square geometry (0px border-radius), crisp 1px borders, zero AI glows/gradients/blurs, performance-first optimization, and keyboard hotkeys. Completely removed all Apple OS / Liquid Glass shaders and guidelines per user directive. | Confirmed |
 
 ## Additional product context
 

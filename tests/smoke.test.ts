@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { z } from "zod";
-import { tasks, organizations } from "@/lib/db/schema";
-import { cn } from "@/lib/utils";
+import { tasks, organizations } from "@/server/db/schema";
+import { cn } from "@/shared/utils";
 
 describe("Slice 0: Foundation Smoke Test", () => {
   it("executes basic assertions in Vitest harness", () => {

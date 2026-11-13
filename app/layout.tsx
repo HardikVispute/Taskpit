@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "TaskPit | AI-Native Team Execution Platform",
@@ -24,11 +18,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/GlacialIndifference-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/GlacialIndifference-Bold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const storedTheme = localStorage.getItem('taskpit-theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         {children}
       </body>
     </html>

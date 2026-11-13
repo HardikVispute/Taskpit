@@ -1,14 +1,14 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { createTestDb } from "@/lib/db";
-import { TaskService } from "@/lib/services/task-service";
-import { OrganizationService } from "@/lib/services/organization-service";
+import { createTestDb } from "@/server/db";
+import { TaskService } from "@/server/services/task.service";
+import { OrganizationService } from "@/server/services/organization.service";
 import {
   ForbiddenError,
   InvalidAssigneeError,
   TaskNotFoundError,
   ValidationError,
-} from "@/lib/errors";
-import { tasks } from "@/lib/db/schema";
+} from "@/shared/errors";
+import { tasks } from "@/server/db/schema";
 import { eq } from "drizzle-orm";
 
 describe("Phase 2: Persistent Task Backend & Business Rules", () => {

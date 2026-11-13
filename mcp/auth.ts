@@ -1,8 +1,8 @@
-import { getDb } from "@/lib/db";
-import { organizations, organizationMemberships } from "@/lib/db/schema";
-import { ActorContext } from "@/lib/types/auth";
-import { UnauthorizedError, ForbiddenError } from "@/lib/errors";
-import { OrganizationService } from "@/lib/services/organization-service";
+import { getDb } from "@/server/db";
+import { organizations, organizationMemberships } from "@/server/db/schema";
+import { ActorContext } from "@/shared/types/auth.types";
+import { UnauthorizedError, ForbiddenError } from "@/shared/errors";
+import { OrganizationService } from "@/server/services/organization.service";
 import { eq, and } from "drizzle-orm";
 
 /**

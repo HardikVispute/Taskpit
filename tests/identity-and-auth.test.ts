@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { createTestDb } from "@/lib/db";
-import { organizations, organizationMemberships, users } from "@/lib/db/schema";
-import { UserService } from "@/lib/services/user-service";
-import { TaskService } from "@/lib/services/task-service";
-import { OrganizationService } from "@/lib/services/organization-service";
-import { getVerifiedActorContext } from "@/lib/auth/session";
+import { createTestDb } from "@/server/db";
+import { organizations, organizationMemberships, users } from "@/server/db/schema";
+import { UserService } from "@/server/services/user.service";
+import { TaskService } from "@/server/services/task.service";
+import { OrganizationService } from "@/server/services/organization.service";
+import { getVerifiedActorContext } from "@/server/auth/session";
 import {
   UnauthorizedError,
   NoMembershipsError,
@@ -12,7 +12,7 @@ import {
   ConflictError,
   ValidationError,
   InvalidAssigneeError,
-} from "@/lib/errors";
+} from "@/shared/errors";
 import { eq } from "drizzle-orm";
 
 describe("Phase 5: Unified Authentication, User Identity & Multi-Organization Selection", () => {

@@ -14,9 +14,9 @@ import {
   KeyRound,
   Check,
 } from "lucide-react";
-import { switchActiveOrgAction, signOutAction } from "@/app/actions/auth";
-import { MembershipRole } from "@/lib/types/auth";
-import { UserOrganizationMembership } from "@/lib/services/user-service";
+import { switchActiveOrgAction } from "@/server/actions/organization.actions";
+import { signOutAction } from "@/server/actions/auth.actions";
+import type { MembershipRole, UserOrganizationMembership } from "@/shared/types/auth.types";
 
 interface WorkspaceHeaderProps {
   organizationName: string;

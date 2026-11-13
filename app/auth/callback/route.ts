@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { createClient } from "@/utils/supabase/server";
-import { UserService } from "@/lib/services/user-service";
-import { ACTIVE_ORG_COOKIE } from "@/lib/auth/session";
+import { createClient } from "@/server/auth/supabase-server";
+import { UserService } from "@/server/services/user.service";
+import { ACTIVE_ORG_COOKIE } from "@/server/auth/session";
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = searchParams.get("next") ?? "/";
+  const next = searchParams.get("next") ?? "/workspace";
   const errorDescription = searchParams.get("error_description") || searchParams.get("error");
 
   if (errorDescription) {
@@ -47,7 +47,7 @@ export async function GET(request: Request) {
         });
       }
 
-      const redirectPath = memberships.length > 0 ? next : "/select-org";
+      const redirectPath = memberships.length > 0 ? (next === "/" ? "/workspace" : next) : "/select-org";
       return NextResponse.redirect(`${origin}${redirectPath}`);
     } catch {
       return NextResponse.redirect(

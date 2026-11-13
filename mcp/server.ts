@@ -1,8 +1,8 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerMcpTools } from "./tools";
 import { resolveMcpActor } from "./auth";
-import { getDb } from "@/lib/db";
-import { ActorContext } from "@/lib/types/auth";
+import { getDb } from "@/server/db";
+import { ActorContext } from "@/shared/types/auth.types";
 
 export interface CreateMcpServerOptions {
   apiKey?: string;

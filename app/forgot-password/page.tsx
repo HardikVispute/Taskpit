@@ -3,8 +3,8 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AlertCircle, ArrowLeft, Mail, Check } from "lucide-react";
-import { resetPasswordAction } from "@/app/actions/auth";
+import { AlertCircle, ArrowLeft, Check } from "lucide-react";
+import { resetPasswordAction } from "@/server/actions/auth.actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -31,95 +31,88 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center p-4 bg-background bg-cover bg-center relative"
-      style={{ backgroundImage: "url('/assets/backgrounds/auth-light.webp')" }}
-    >
-      <div className="absolute inset-0 bg-[#fafaf9]/85 dark:bg-[#121316]/90 backdrop-blur-[2px]" />
-      <div className="relative z-10 w-full max-w-sm py-10">
-        <div className="flex flex-col items-center text-center mb-7">
-          <Link href="/" className="inline-block mb-3.5 transition-opacity hover:opacity-85">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-background">
+      <div className="w-full max-w-[400px] border border-black dark:border-white bg-white dark:bg-black p-8 shadow-none">
+        <div className="flex flex-col items-center text-center mb-8 border-b border-neutral-200 dark:border-neutral-800 pb-6">
+          <Link
+            href="/"
+            className="mb-4 flex h-10 w-10 items-center justify-center border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black transition-colors"
+          >
             <Image
               src="/assets/brand/logo.svg"
               alt="TaskPit"
-              width={40}
-              height={40}
-              className="h-10 w-auto"
+              width={24}
+              height={24}
+              className="h-6 w-auto brightness-0 invert dark:invert-0"
               priority
             />
           </Link>
-          <h1 className="text-2xl font-semibold tracking-tight text-foreground">
-            Reset password
+          <h1 className="text-xl font-mono font-bold uppercase tracking-wider text-foreground">
+            Reset Password
           </h1>
-          <p className="text-xs text-muted-foreground mt-1 max-w-xs">
-            Enter your email and we&apos;ll send instructions to reset your password
+          <p className="text-xs font-mono text-neutral-500 mt-1">
+            Send password recovery link
           </p>
         </div>
 
-        <div className="rounded-xl border border-border bg-card p-6 sm:p-7 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-          {isSuccess ? (
-            <div className="space-y-4 text-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary mx-auto mb-2">
-                <Check className="h-5 w-5" />
+        {isSuccess ? (
+          <div className="space-y-4 text-center">
+            <div className="flex h-10 w-10 items-center justify-center border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black mx-auto mb-2">
+              <Check className="h-5 w-5" />
+            </div>
+            <p className="text-sm font-mono font-bold uppercase text-foreground">Instructions Sent</p>
+            <p className="text-xs font-mono text-neutral-500 leading-relaxed">
+              If an account exists for <span className="font-semibold text-foreground">{email}</span>, you will receive a reset link shortly.
+            </p>
+            <Link href="/login" className="block w-full mt-6">
+              <Button variant="outline" className="w-full h-10">
+                Return to Sign In
+              </Button>
+            </Link>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {errorMessage && (
+              <div className="mb-4 flex items-start gap-2 border border-black dark:border-white bg-neutral-100 dark:bg-neutral-900 p-3 text-xs font-mono text-foreground">
+                <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                <span>{errorMessage}</span>
               </div>
-              <p className="text-sm font-semibold text-foreground">Instructions sent</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                If an account exists for <span className="font-medium text-foreground">{email}</span>, you will receive a reset link shortly.
-              </p>
-              <Link href="/login" className="block w-full mt-4">
-                <Button variant="outline" className="w-full h-9 text-xs">
-                  Return to Sign In
-                </Button>
+            )}
+
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-mono font-semibold uppercase tracking-wider text-foreground" htmlFor="email">
+                Registered Email
+              </label>
+              <Input
+                id="email"
+                type="email"
+                required
+                placeholder="name@organization.edu"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isPending}
+              />
+            </div>
+
+            <Button
+              type="submit"
+              disabled={isPending}
+              className="w-full h-10 mt-2"
+            >
+              <span>{isPending ? "Sending..." : "Send Reset Link"}</span>
+            </Button>
+
+            <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 text-center">
+              <Link
+                href="/login"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-neutral-500 hover:text-foreground transition-colors"
+              >
+                <ArrowLeft className="h-3 w-3" />
+                <span>Back to Sign In</span>
               </Link>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-3.5">
-              {errorMessage && (
-                <div className="flex items-start gap-2.5 rounded-lg border border-destructive/20 bg-destructive/5 p-3 text-xs text-destructive">
-                  <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
-                  <span>{errorMessage}</span>
-                </div>
-              )}
-
-              <div className="space-y-1">
-                <label className="text-xs font-medium text-foreground" htmlFor="email">
-                  Email
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground/70" />
-                  <Input
-                    id="email"
-                    type="email"
-                    required
-                    placeholder="name@organization.edu"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-9 text-xs h-9"
-                    disabled={isPending}
-                  />
-                </div>
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isPending}
-                className="w-full h-9 font-medium text-xs mt-2"
-              >
-                {isPending ? "Sending link..." : "Send Reset Link"}
-              </Button>
-
-              <div className="pt-2 text-center">
-                <Link
-                  href="/login"
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground font-medium"
-                >
-                  <ArrowLeft className="h-3 w-3" />
-                  Back to Sign In
-                </Link>
-              </div>
-            </form>
-          )}
-        </div>
+          </form>
+        )}
       </div>
     </div>
   );
