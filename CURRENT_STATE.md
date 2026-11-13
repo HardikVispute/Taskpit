@@ -1,9 +1,11 @@
 # TaskPit: Current Development State
 
 ## Project Status
-The application now features the **Nectarline — Supply Side Studio®** landing page as its primary interactive entry experience (`/`, `public/nectarline.html`, and `public/index.html`), built with a fixed WebGL ripple lens scene, Three.js 3D crystal koi fish with vertex deformation, deterministic SVG charts, typing code block, and 5-section narrative flow.
+The application features the **TaskPit — Autonomous Team Execution Platform®** landing page as its primary interactive entry experience (`/`, `public/nectarline.html`, and `public/index.html`), maintaining the exact visual architecture: a fixed WebGL ripple lens scene, Three.js 3D crystal koi fish with vertex deformation, purple/violet glassmorphism, deterministic SVG charts, typing code block, and 5-section narrative flow.
 
-The authenticated task workspace has moved to `/workspace`, and all underlying backend services, security policies, multi-tenant isolation, MCP tools, and test suites (43 of 43 passed) remain 100% verified and operational.
+All Nectarline and programmatic advertising terminology have been completely replaced with genuine **TaskPit** team delegation, role isolation, task inbox, and MCP protocol messaging.
+
+The authenticated task workspace is served at `/workspace`, and all underlying backend services, security policies, multi-tenant isolation, MCP tools, and test suites (43 of 43 passed) remain 100% verified and operational.
 
 ## Product Goal
 Validate whether student-organization leaders prefer delegating tasks through their AI assistant connected to TaskPit (via MCP) rather than their current document-based workflow.
@@ -17,7 +19,7 @@ Validate whether student-organization leaders prefer delegating tasks through th
 ```
 taskpit/
 ├── app/                               # Next.js App Router (pages and route handlers only)
-│   ├── route.ts                       # Root GET / serving the Nectarline single-file landing page
+│   ├── route.ts                       # Root GET / serving the TaskPit single-file landing page
 │   ├── workspace/page.tsx             # Authenticated Task execution dashboard (AppShell & TaskWorkspace)
 │   ├── auth/callback/route.ts         # OAuth code exchange route handler
 │   ├── forgot-password/page.tsx       # Password recovery request page
@@ -88,8 +90,8 @@ taskpit/
 │   ├── smoke.test.ts                  # Harness and environment smoke test
 │   └── task-service.test.ts           # Task business rules and multi-tenant isolation tests
 ├── public/                            # Static assets, fonts, and standalone landing page
-│   ├── nectarline.html                # Exact Nectarline single-file landing page (no build step, no framework)
-│   ├── index.html                     # Exact Nectarline copy for root static hosting
+│   ├── nectarline.html                # TaskPit landing page (exact visual architecture, zero build step)
+│   ├── index.html                     # Exact TaskPit landing page copy for root static hosting
 │   └── fonts/                         # Glacial Indifference WOFF2 font files
 ├── vault/Taskpit/                     # Obsidian product notes and architectural decisions
 ├── middleware.ts                      # Next.js root request middleware
@@ -99,29 +101,22 @@ taskpit/
 └── package.json                       # Dependencies including server-only
 ```
 
-## Landing Page & Flow Implementation
-1. **Nectarline Landing Page (`public/nectarline.html` & `app/route.ts`):**
-   - Single-file architecture containing inline CSS, two inline scripts (one classic, one ES module), Three.js 0.170.0 via CDN import map.
-   - Fixed viewport scene stack:
-     - Layer 1: Looping dusk lotus-pond video with WebGL 1 hover-ripple lens shader and chromatic fringing.
-     - Layer 2: Deep violet gradient (`#160c40` to `#0b0626`).
-     - Layer 3: Night pond plate with dark gradient overlay.
-     - Layer 4: Three.js transparent canvas with 3D crystal-glass koi GLB, normalized geometry, physical material with clearcoat, iridescence, and vertex shader swim deformation.
-   - Choreographed 6-pose scroll path with smoothstep crossfade and scroll-velocity-driven swimming speed.
-   - Five complete sections: Hero, Studio (with deterministic SVG sparklines, area chart, KPI tiles, and deals table), Packages (OpenRTB 2.6 typing animation, 3 package cards), Use Cases (4-step staircase of role cards), and Call to Action + 5-column footer with ghosted wordmark.
-   - Small screen (≤ 820px) responsive adaptation and `prefers-reduced-motion` fallbacks.
-2. **Application Flow:**
-   - Public visitors land on `/` (Nectarline landing page).
-   - Navigation links "Login" and "Get Started — it's Free" route directly to `/login` and `/register`.
-   - Authenticated users access the Task execution workspace at `/workspace`.
+## Landing Page & Product Content
+1. **Brand Identity:**
+   - Wordmark updated to **TaskPit** across navigation, hero, dashboard, footer, and watermark.
+   - Preserved purple/violet orb icon logo.
+2. **Product Messaging:**
+   - **Hero:** *"Introducing TaskPit — Autonomous Team Execution®"*
+   - **Studio / Platform:** *"The leading AI-native team execution platform for ambitious organizations and leaders."*
+   - **Stats Row:** Role-based isolation (100%), real-time immutable audit timeline, dual MCP protocol support, 0s delegation turnaround latency.
+   - **Dashboard View:** Shows active org context (*E-Cell IIT Bombay*), sprint execution velocity metrics, 4 KPI tiles (*Completed tasks*, *On-time delivery*, *Avg review turnaround*, *Active delegates*), task category breakdown (*Engineering*, *Product & Design*, *Operations*, *Outreach*, *Leadership*), and active task records.
+   - **MCP Delegation Protocol:** Code block showcases real TaskPit MCP `create_task` tool execution with structured arguments.
+   - **Feature Cards:** *Direct AI Assistant Handoff*, *Focused Member Inboxes*, *Live Execution Timeline*.
+   - **Use Cases:** *Student Leaders*, *Engineering Teams*, *Core Committees*, *Autonomous AI Agents*.
+   - **Footer:** TaskPit mission statement, platform links, legal bar, and ghosted `"TaskPit"` wordmark.
 
 ## Actual Executed Verification Results
 - **TypeScript Typecheck (`npm run typecheck`):** Passed with **0 errors**.
 - **ESLint Code Quality (`npm run lint`):** Passed with **0 errors, 0 warnings**.
-- **Vitest Full Test Suite (`npm test`):** **43 of 43 passed (0 failed)** across 4 test suites.
-- **Drizzle Kit Schema Verification (`npx drizzle-kit check`):** Config valid, output: `Everything's fine 🐶🔥`.
-- **Next.js Production Build (`npm run build`):** Clean compilation, all routes generated:
-  - `ƒ /` (Nectarline Landing Page via Route Handler)
-  - `ƒ /workspace` (Task Execution Workspace)
-  - `○ /login`, `○ /register`, `○ /forgot-password`, `○ /reset-password`
-  - `ƒ /select-org`, `ƒ /supabase-test`, `ƒ /auth/callback`
+- **Vitest Full Test Suite (`npm test`):** **43 of 43 passed (0 failed)** across all 4 suites.
+- **Next.js Production Build (`npm run build`):** Clean compilation, all static and dynamic routes generated without errors.

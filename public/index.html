@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nectarline — Supply Side Studio</title>
-  <meta name="description" content="The leading independent self-serve studio for curating programmatic supply.">
+  <title>TaskPit — AI-Native Team Execution Platform</title>
+  <meta name="description" content="The leading AI-native platform for delegating work, coordinating teams, and accelerating execution across your entire organization.">
 
   <!-- Google Fonts Preconnect & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@
 
   <!-- Inline CSS -->
   <style>
-    /* 3. Colour tokens and base */
+    /* Colour tokens and base */
     :root {
       --ink: #f4f2ff;
       --ink-2: rgba(236,232,255,.72);
@@ -100,7 +100,7 @@
       cursor: pointer;
     }
 
-    /* 5. Fixed scene stack */
+    /* Fixed scene stack */
     #scene-stack {
       position: fixed;
       inset: 0;
@@ -178,7 +178,7 @@
       z-index: 1;
     }
 
-    /* 6. Navigation */
+    /* Navigation */
     #navbar {
       position: fixed;
       top: calc(24 * var(--u));
@@ -299,7 +299,7 @@
       background: #1c2363;
     }
 
-    /* 7. Shared components */
+    /* Shared components */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -471,12 +471,12 @@
       transform: none;
     }
 
-    /* 10. Entrance animation guard */
+    /* Entrance animation guard */
     html.anim [data-in] {
       opacity: 0 !important;
     }
 
-    /* 8.1 Hero Section */
+    /* Hero Section */
     #hero {
       height: 100vh;
       min-height: calc(900 * var(--u));
@@ -563,7 +563,7 @@
       50% { transform: translateY(calc(5 * var(--u))); }
     }
 
-    /* 8.2 Studio Section */
+    /* Studio / Platform Section */
     #studio {
       padding: calc(300 * var(--u)) calc(64 * var(--u)) calc(150 * var(--u));
       text-align: center;
@@ -1052,7 +1052,7 @@
       font-weight: 600;
     }
 
-    /* 8.3 Packages Section */
+    /* Packages / Features Section */
     #packs {
       padding: calc(190 * var(--u)) calc(64 * var(--u)) calc(160 * var(--u));
       position: relative;
@@ -1087,7 +1087,6 @@
     }
 
     .code-block {
-      /* No panel: no background, no border, no blur, no divider lines */
       font-family: "Fira Code", monospace;
     }
 
@@ -1285,7 +1284,7 @@
       margin-bottom: calc(2 * var(--u));
     }
 
-    /* 8.4 Use Cases Section */
+    /* Use Cases Section */
     #uses {
       padding: calc(150 * var(--u)) calc(64 * var(--u)) calc(220 * var(--u));
       position: relative;
@@ -1346,7 +1345,6 @@
       font-size: calc(11 * var(--u));
       letter-spacing: .12em;
       color: var(--ink-3);
-      /* Plain tag: NO background, NO border, NO padding */
       background: none;
       border: none;
       padding: 0;
@@ -1379,7 +1377,7 @@
       border-top: 1px solid rgba(210,195,255,.12);
     }
 
-    /* 8.5 Call to action and footer */
+    /* Call to action and footer */
     #end {
       min-height: 100vh;
       padding: calc(230 * var(--u)) calc(64 * var(--u)) calc(36 * var(--u));
@@ -1514,7 +1512,7 @@
       user-select: none;
     }
 
-    /* 12. Small screens (max-width 820px) */
+    /* Small screens (max-width 820px) */
     @media (max-width: 820px) {
       #navbar {
         top: 14px;
@@ -1778,7 +1776,7 @@
       }
     }
 
-    /* 13. Reduced motion */
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.001ms !important;
@@ -1797,7 +1795,7 @@
 </head>
 <body>
 
-  <!-- 5. Fixed Scene Stack -->
+  <!-- Fixed Scene Stack -->
   <div id="scene-stack" aria-hidden="true">
     <div id="day-plate">
       <video id="pond-video" muted loop playsinline preload="auto" crossorigin="anonymous" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261104_160514_d8369d6e-d8ba-4532-9751-b32e0c8aaf75.mp4"></video>
@@ -1808,38 +1806,38 @@
     <canvas id="koi-canvas"></canvas>
   </div>
 
-  <!-- 6. Navigation -->
+  <!-- Navigation -->
   <nav id="navbar" data-in>
     <a href="#hero" class="nav-logo">
       <div class="logo-orb"></div>
-      <span>Nectarline</span>
+      <span>TaskPit</span>
     </a>
 
     <div class="nav-menu">
       <a href="#studio" class="menu-item">
-        <span>Product</span>
+        <span>Platform</span>
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
           <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" opacity="0.8"/>
         </svg>
       </a>
       <a href="#packs" class="menu-item">
-        <span>Channels</span>
+        <span>Execution</span>
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
           <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" opacity="0.8"/>
         </svg>
       </a>
       <a href="#uses" class="menu-item">
-        <span>Resources</span>
+        <span>Teams</span>
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
           <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" opacity="0.8"/>
         </svg>
       </a>
-      <a href="#packs" class="menu-item">Customer Stories</a>
+      <a href="#packs" class="menu-item">How It Works</a>
     </div>
 
     <div class="nav-right">
       <a href="/login" class="nav-login">Login</a>
-      <a href="#end" class="pill-grey">Book a Call</a>
+      <a href="#end" class="pill-grey">View Demo</a>
       <a href="/register" class="pill-dark">Get Started — it's Free</a>
     </div>
   </nav>
@@ -1847,18 +1845,18 @@
   <!-- Main Content Over Scene -->
   <main id="main-content">
 
-    <!-- 8.1 Hero Section -->
+    <!-- Hero Section -->
     <section id="hero">
       <div class="hero-headline" data-in>
         <div class="hero-line"><span class="hero-span-1">Introducing</span></div>
-        <div class="hero-line"><span class="hero-span-2">Nectarline</span></div>
+        <div class="hero-line"><span class="hero-span-2">TaskPit</span></div>
       </div>
       <div class="hero-subline" data-in>
-        Supply Side Studio<sup>®</sup>
+        Autonomous Team Execution<sup>®</sup>
       </div>
       <div class="hero-buttons" data-in>
-        <a href="/register" class="btn btn-fill">Get Started — it's Free</a>
-        <a href="#end" class="btn btn-ghost">Book a Call</a>
+        <a href="/register" class="btn btn-fill">Start Executing — it's Free</a>
+        <a href="#studio" class="btn btn-ghost">Explore Platform</a>
       </div>
       <button id="scroll-card" data-in onclick="document.getElementById('studio').scrollIntoView({behavior:'smooth'})">
         <div>
@@ -1871,36 +1869,36 @@
       </button>
     </section>
 
-    <!-- 8.2 Studio Section -->
+    <!-- Studio / Platform Section -->
     <section id="studio">
       <h2 class="studio-headline reveal">
-        The leading independent <span class="accent">self-serve curation studio</span><br>for all programmatic media buyers.
+        The leading AI-native <span class="accent">team execution platform</span><br>for ambitious organizations and leaders.
       </h2>
       <p class="lede studio-lede reveal">
-        Shape supply before you bid. Package, forecast and launch private deals from one calm workspace.
+        Delegate work before blockers hit. Assign tasks, track real-time execution, and review deliverables from one calm workspace.
       </p>
       <div class="studio-buttons reveal">
         <a href="/register" class="btn btn-fill">Get started — it's free</a>
-        <a href="#end" class="btn btn-ghost">Book a Call</a>
+        <a href="/login" class="btn btn-ghost">Sign In to Workspace</a>
       </div>
 
       <!-- Stats row -->
       <div class="stats-row reveal">
         <div class="stat-cell">
-          <div class="stat-num">2.4B</div>
-          <div class="stat-caption">bid requests shaped<br>every day</div>
+          <div class="stat-num">100%</div>
+          <div class="stat-caption">role-based isolation<br>across organizations</div>
         </div>
         <div class="stat-cell">
-          <div class="stat-num">48s</div>
-          <div class="stat-caption">median time from brief<br>to live deal ID</div>
+          <div class="stat-num">Real-time</div>
+          <div class="stat-caption">immutable audit timeline<br>on every delegation</div>
         </div>
         <div class="stat-cell">
-          <div class="stat-num">120+</div>
-          <div class="stat-caption">supply partners<br>in one workspace</div>
+          <div class="stat-num">Dual MCP</div>
+          <div class="stat-caption">native protocol support<br>for AI assistants</div>
         </div>
         <div class="stat-cell">
-          <div class="stat-num">0%</div>
-          <div class="stat-caption">buy-side markup<br>on curated media</div>
+          <div class="stat-num">0s</div>
+          <div class="stat-caption">turnaround latency from<br>AI brief to task inbox</div>
         </div>
       </div>
 
@@ -1910,10 +1908,10 @@
         <div class="dash-topbar">
           <div class="dash-mini-logo">
             <div class="dash-mini-orb"></div>
-            <span>Nectarline</span>
+            <span>TaskPit</span>
           </div>
           <div class="dash-breadcrumb">
-            Deals &nbsp;/&nbsp; <strong>Spring Streaming Pack</strong>
+            Active Org &nbsp;/&nbsp; <strong>E-Cell IIT Bombay</strong>
           </div>
           <div style="flex: 1;"></div>
           <div class="dash-search">
@@ -1921,33 +1919,33 @@
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <span>Search deals</span>
+            <span>Search tasks &amp; members</span>
             <span class="dash-search-key mono">⌘K</span>
           </div>
           <div class="chip chip-live">
             <span class="dot-live"></span>
-            <span>Live</span>
+            <span>Live Workspace</span>
           </div>
-          <div class="dash-avatar">PM</div>
+          <div class="dash-avatar">LD</div>
         </div>
 
         <div class="dash-body">
           <!-- Sidebar -->
           <aside class="dash-sidebar">
-            <div class="sidebar-group">WORKSPACE</div>
+            <div class="sidebar-group">ORGANIZATION</div>
             <div class="sidebar-item active">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M3 3v18h18"/>
                 <path d="m19 9-5 5-4-4-3 3"/>
               </svg>
-              <span>Performance</span>
+              <span>Execution</span>
             </div>
             <div class="sidebar-item">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <rect x="2" y="7" width="20" height="14" rx="2"/>
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
               </svg>
-              <span>Deals</span>
+              <span>Tasks</span>
               <span class="sidebar-count">24</span>
             </div>
             <div class="sidebar-item">
@@ -1955,7 +1953,8 @@
                 <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
                 <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
               </svg>
-              <span>Forecasts</span>
+              <span>Submissions</span>
+              <span class="sidebar-count">8</span>
             </div>
             <div class="sidebar-item">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -1963,38 +1962,39 @@
                 <circle cx="9" cy="7" r="4"/>
               </svg>
               <span>Team</span>
+              <span class="sidebar-count">16</span>
             </div>
 
-            <div class="sidebar-group">LIBRARY</div>
+            <div class="sidebar-group">DELEGATION</div>
             <div class="sidebar-item">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <polygon points="12 2 2 7 12 12 22 7 12 2"/>
                 <polyline points="2 17 12 22 22 17"/>
                 <polyline points="2 12 12 17 22 12"/>
               </svg>
-              <span>Audience Layers</span>
-              <span class="sidebar-count">38</span>
+              <span>My Assignments</span>
+              <span class="sidebar-count">5</span>
             </div>
             <div class="sidebar-item">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
               </svg>
-              <span>Contextual</span>
-              <span class="sidebar-count">61</span>
+              <span>In Review</span>
+              <span class="sidebar-count">3</span>
             </div>
             <div class="sidebar-item">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="m4.93 4.93 4.24 4.24"/>
               </svg>
-              <span>Domain Scoring</span>
+              <span>Audit Timeline</span>
             </div>
             <div class="sidebar-item">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <rect x="2" y="7" width="20" height="15" rx="2"/>
                 <polyline points="17 2 12 7 7 2"/>
               </svg>
-              <span>CTV Packages</span>
+              <span>AI Delegations</span>
               <span class="sidebar-count">12</span>
             </div>
           </aside>
@@ -2002,44 +2002,44 @@
           <!-- Main -->
           <div class="dash-main">
             <div class="dash-main-header">
-              <h3 class="dash-main-title">Deal performance</h3>
-              <div class="chip chip-up">▲ 18.4% vs last period</div>
+              <h3 class="dash-main-title">Team execution velocity</h3>
+              <div class="chip chip-up">▲ 18.4% velocity lift</div>
               <div class="dash-segmented">
                 <button class="segment-btn">7D</button>
                 <button class="segment-btn active">30D</button>
                 <button class="segment-btn">90D</button>
               </div>
-              <button class="btn-new-deal">+ New deal</button>
+              <a href="/workspace" class="btn-new-deal" style="display:inline-flex; align-items:center; text-decoration:none;">+ New task</a>
             </div>
 
             <!-- KPI Tiles -->
             <div class="kpi-row">
               <div class="kpi-tile">
-                <div class="kpi-label">Spend</div>
+                <div class="kpi-label">Completed tasks</div>
                 <div class="kpi-val-row">
-                  <span class="kpi-value">$184.2K</span>
+                  <span class="kpi-value">184</span>
                   <span class="chip chip-up" style="color: #9b8cff; border-color: rgba(155,140,255,.2); background: rgba(155,140,255,.1);">+12%</span>
                 </div>
                 <svg class="kpi-sparkline" viewBox="0 0 200 30" preserveAspectRatio="none" id="spark-1"></svg>
               </div>
               <div class="kpi-tile">
-                <div class="kpi-label">Win rate</div>
+                <div class="kpi-label">On-time delivery</div>
                 <div class="kpi-val-row">
-                  <span class="kpi-value">29.6%</span>
+                  <span class="kpi-value">94.6%</span>
                   <span class="chip chip-up" style="color: #ff8fd8; border-color: rgba(255,143,216,.2); background: rgba(255,143,216,.1);">+3.1pt</span>
                 </div>
                 <svg class="kpi-sparkline" viewBox="0 0 200 30" preserveAspectRatio="none" id="spark-2"></svg>
               </div>
               <div class="kpi-tile">
-                <div class="kpi-label">eCPM</div>
+                <div class="kpi-label">Avg review turnaround</div>
                 <div class="kpi-val-row">
-                  <span class="kpi-value">$9.42</span>
-                  <span class="chip" style="color: #7fd6ff; border-color: rgba(127,214,255,.2); background: rgba(127,214,255,.1);">−4%</span>
+                  <span class="kpi-value">1.4 hrs</span>
+                  <span class="chip" style="color: #7fd6ff; border-color: rgba(127,214,255,.2); background: rgba(127,214,255,.1);">−74%</span>
                 </div>
                 <svg class="kpi-sparkline" viewBox="0 0 200 30" preserveAspectRatio="none" id="spark-3"></svg>
               </div>
               <div class="kpi-tile">
-                <div class="kpi-label">Deals live</div>
+                <div class="kpi-label">Active delegates</div>
                 <div class="kpi-val-row">
                   <span class="kpi-value">24</span>
                   <span class="chip chip-up">+5</span>
@@ -2052,15 +2052,15 @@
             <div class="chart-row">
               <div class="chart-pane">
                 <div class="chart-pane-header">
-                  <div class="chart-pane-title">Spend &amp; win rate</div>
+                  <div class="chart-pane-title">Velocity &amp; throughput</div>
                   <div class="chart-legend">
                     <div class="legend-item">
                       <div class="legend-swatch" style="background: #9b8cff;"></div>
-                      <span>Spend</span>
+                      <span>Completed</span>
                     </div>
                     <div class="legend-item">
                       <div class="legend-swatch" style="background: #ff8fd8;"></div>
-                      <span>Win rate</span>
+                      <span>Submissions</span>
                     </div>
                   </div>
                 </div>
@@ -2069,12 +2069,12 @@
 
               <div class="chart-pane">
                 <div class="chart-pane-header">
-                  <div class="chart-pane-title">Format mix</div>
+                  <div class="chart-pane-title">Task category breakdown</div>
                 </div>
                 <div class="format-bars">
                   <div class="format-bar-row">
                     <div class="format-bar-labels">
-                      <span>CTV</span>
+                      <span>Engineering</span>
                       <span class="format-bar-val">38%</span>
                     </div>
                     <div class="format-track">
@@ -2083,7 +2083,7 @@
                   </div>
                   <div class="format-bar-row">
                     <div class="format-bar-labels">
-                      <span>Display</span>
+                      <span>Product &amp; Design</span>
                       <span class="format-bar-val">27%</span>
                     </div>
                     <div class="format-track">
@@ -2092,7 +2092,7 @@
                   </div>
                   <div class="format-bar-row">
                     <div class="format-bar-labels">
-                      <span>Online video</span>
+                      <span>Operations</span>
                       <span class="format-bar-val">19%</span>
                     </div>
                     <div class="format-track">
@@ -2101,7 +2101,7 @@
                   </div>
                   <div class="format-bar-row">
                     <div class="format-bar-labels">
-                      <span>Audio</span>
+                      <span>Outreach</span>
                       <span class="format-bar-val">10%</span>
                     </div>
                     <div class="format-track">
@@ -2110,7 +2110,7 @@
                   </div>
                   <div class="format-bar-row">
                     <div class="format-bar-labels">
-                      <span>DOOH</span>
+                      <span>Leadership</span>
                       <span class="format-bar-val">6%</span>
                     </div>
                     <div class="format-track">
@@ -2121,40 +2121,40 @@
               </div>
             </div>
 
-            <!-- Deals Table -->
+            <!-- Deals / Tasks Table -->
             <div class="deals-table">
               <div class="deal-row deal-header">
-                <div>Deal</div>
-                <div>Channel</div>
-                <div>Floor</div>
-                <div>Win rate</div>
+                <div>Task</div>
+                <div>Category</div>
+                <div>Due Date</div>
+                <div>Assignee</div>
                 <div>Status</div>
               </div>
               <div class="deal-row">
-                <div class="deal-name">Spring Streaming Pack</div>
-                <div>CTV</div>
-                <div class="mono">$18.50</div>
-                <div class="mono">31.2%</div>
+                <div class="deal-name">Finalize E-Summit Sponsor Deck</div>
+                <div>Operations</div>
+                <div class="mono">Today</div>
+                <div class="mono">Hardik (Leader)</div>
                 <div>
-                  <span class="chip chip-live"><span class="dot-live"></span>Live</span>
+                  <span class="chip chip-live"><span class="dot-live"></span>In Progress</span>
                 </div>
               </div>
               <div class="deal-row">
-                <div class="deal-name">Pondside In-Market Auto</div>
-                <div>Display</div>
-                <div class="mono">$4.80</div>
-                <div class="mono">27.9%</div>
+                <div class="deal-name">Build MCP Tool Protocol Adapters</div>
+                <div>Engineering</div>
+                <div class="mono">Nov 18</div>
+                <div class="mono">Dev Core</div>
                 <div>
-                  <span class="chip chip-live"><span class="dot-live"></span>Live</span>
+                  <span class="chip chip-live"><span class="dot-live"></span>In Review</span>
                 </div>
               </div>
               <div class="deal-row">
-                <div class="deal-name">Quiet Hours Audio</div>
-                <div>Audio</div>
-                <div class="mono">$6.20</div>
-                <div class="mono">—</div>
+                <div class="deal-name">Campus Ambassador Outreach Batch</div>
+                <div>Outreach</div>
+                <div class="mono">Nov 22</div>
+                <div class="mono">Priya S.</div>
                 <div>
-                  <span class="chip">Forecasting</span>
+                  <span class="chip">Submitted</span>
                 </div>
               </div>
             </div>
@@ -2164,47 +2164,47 @@
       </div>
     </section>
 
-    <!-- 8.3 Packages Section -->
+    <!-- Packages / Features Section -->
     <section id="packs">
       <div class="packs-split">
         <div class="reveal">
           <h2 class="packs-headline">
-            Choose boldly, look ahead, shape supply, tune fast, <span class="accent">track <span class="serif">truth.</span></span>
+            Delegate boldly, review clearly, coordinate fast, <span class="accent">track <span class="serif">execution.</span></span>
           </h2>
           <p class="lede packs-lede">
-            Start from a curated package, tune it to your brief, then push one deal ID to any buying platform you already use.
+            Start from an organizational objective, delegate directly or via your AI assistant, and verify task progress in real time.
           </p>
           <div class="packs-buttons">
-            <a href="#packs" class="btn btn-white">Customer Stories</a>
-            <a href="#end" class="btn btn-dk">Book a Call</a>
+            <a href="/workspace" class="btn btn-white">Open Workspace</a>
+            <a href="/login" class="btn btn-dk">Sign In</a>
           </div>
         </div>
 
-        <!-- Code Block (No Panel) -->
+        <!-- Code Block (TaskPit MCP Protocol Call) -->
         <div class="code-block reveal" aria-hidden="true" id="type-trigger">
           <div class="code-header">
-            <span>bid_request.json</span>
-            <span>OpenRTB 2.6</span>
+            <span>mcp_create_task.json</span>
+            <span>MCP Protocol v1.0</span>
           </div>
           <div class="code-pre" id="code-content"><span id="typed-text"></span><span class="code-caret"></span></div>
           <div class="code-footer">
-            <span>deal nl.pond.0428</span>
+            <span>task tp.exec.0428</span>
             <div class="code-footer-ready">
               <span class="dot-live" style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#5ee6a8; box-shadow:0 0 8px #5ee6a8;"></span>
-              <span>ready</span>
+              <span>verified</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Package Cards -->
+      <!-- Feature Cards -->
       <div class="packs-grid">
         <!-- Card 1 (Lead) -->
         <div class="pack-card lead reveal">
           <div class="pack-top">
             <span class="pack-index">01</span>
             <div class="bare-icon">
-              <!-- Crosshair icon -->
+              <!-- Target Crosshair icon -->
               <svg viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="6"/>
                 <circle cx="12" cy="12" r="2"/>
@@ -2215,16 +2215,16 @@
               </svg>
             </div>
           </div>
-          <div class="pack-eyebrow">AUDIENCE-LAYERED</div>
-          <h3 class="pack-title">Reach Buyers Ready to Act Now</h3>
-          <p class="pack-body">Publisher first-party signals plus trusted audiences, layered supply-side.</p>
+          <div class="pack-eyebrow">AI-NATIVE DELEGATION</div>
+          <h3 class="pack-title">Direct AI Assistant Handoff</h3>
+          <p class="pack-body">Connect Cursor, Claude Desktop, or your local terminal via MCP. Delegate tasks without leaving your workflow.</p>
           <div class="pack-meta">
             <div>
-              <div class="pack-caption">Avg. reach lift</div>
-              <div class="pack-metric">+24%</div>
+              <div class="pack-caption">Delegation speedup</div>
+              <div class="pack-metric">+3.4x</div>
             </div>
-            <a href="#end" class="link-arrow">
-              <span>Get these deals</span>
+            <a href="#packs" class="link-arrow">
+              <span>Explore tools</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2245,16 +2245,16 @@
               </svg>
             </div>
           </div>
-          <div class="pack-eyebrow">CTV PACKAGES</div>
-          <h3 class="pack-title">Screens Watched</h3>
-          <p class="pack-body">Streaming inventory tuned toward a given context or genre.</p>
+          <div class="pack-eyebrow">ROLE-BASED WORKSPACES</div>
+          <h3 class="pack-title">Focused Member Inboxes</h3>
+          <p class="pack-body">Team members receive clean task briefs, deadlines, and submission flows without organizational noise.</p>
           <div class="pack-meta">
             <div>
               <div class="pack-caption">Completion rate</div>
               <div class="pack-metric">96%</div>
             </div>
-            <a href="#end" class="link-arrow">
-              <span>Get these deals</span>
+            <a href="#packs" class="link-arrow">
+              <span>View inboxes</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2274,16 +2274,16 @@
               </svg>
             </div>
           </div>
-          <div class="pack-eyebrow">PERFORMANCE</div>
-          <h3 class="pack-title">Lift Conversion Now</h3>
-          <p class="pack-body">Placements curated to steer toward the KPIs you care about.</p>
+          <div class="pack-eyebrow">IMMUTABLE ACCOUNTABILITY</div>
+          <h3 class="pack-title">Live Execution Timeline</h3>
+          <p class="pack-body">Every status transition, reassignment, and review note is recorded in an audit trail for total transparency.</p>
           <div class="pack-meta">
             <div>
-              <div class="pack-caption">Avg. CPA change</div>
-              <div class="pack-metric">−17%</div>
+              <div class="pack-caption">Unreviewed lag</div>
+              <div class="pack-metric">−74%</div>
             </div>
-            <a href="#end" class="link-arrow">
-              <span>Get these deals</span>
+            <a href="#packs" class="link-arrow">
+              <span>View audit trails</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2298,38 +2298,38 @@
           <div class="step-highlight"></div>
           <span class="step-counter">01</span>
           <div>
-            <strong>Pick a package, then tune it</strong>
-            Layer audiences, context and quality rules.
+            <strong>Create an organization &amp; invite your team</strong>
+            Multi-tenant isolation with unique 2-layer join credentials.
           </div>
         </li>
         <li class="step-item">
           <div class="step-highlight"></div>
           <span class="step-counter">02</span>
           <div>
-            <strong>Review the forecast</strong>
-            See reach, floors and bidding guidance up front.
+            <strong>Delegate tasks directly or via AI</strong>
+            Use the web workspace or connect external assistants via MCP.
           </div>
         </li>
         <li class="step-item">
           <div class="step-highlight"></div>
           <span class="step-counter">03</span>
           <div>
-            <strong>Generate deal IDs in seconds</strong>
-            Activate on any buying platform, live in minutes.
+            <strong>Review submissions &amp; ship deliverables</strong>
+            Keep team execution moving fast with structured reviews.
           </div>
         </li>
       </ol>
     </section>
 
-    <!-- 8.4 Use Cases Section -->
+    <!-- Use Cases Section -->
     <section id="uses">
       <!-- Heading block in empty top-right of staircase -->
       <div class="uses-heading-block">
         <h2 class="uses-headline reveal">
-          Built for everyone<br>who <span class="serif">touches</span> supply.
+          Built for everyone<br>who <span class="serif">leads</span> teams.
         </h2>
         <p class="lede uses-lede reveal">
-          One workspace, four ways in. Every team gets the controls it needs, and nothing it doesn't.
+          One platform, complete role clarity. Leaders direct the mission, members execute without clutter.
         </p>
       </div>
 
@@ -2347,15 +2347,15 @@
               </svg>
             </div>
           </div>
-          <h3 class="role-title">Media Agency</h3>
-          <p class="role-body">Programmatic without curation is just noise. Own the pipes, or let the pipes own you.</p>
+          <h3 class="role-title">Student Leaders</h3>
+          <p class="role-body">E-Cells, technical clubs, and student bodies lose track of who owns what. TaskPit gives you total oversight.</p>
           <div class="role-chips">
-            <span class="chip">Multi-client seats</span>
-            <span class="chip">Margin control</span>
+            <span class="chip">Role hierarchy</span>
+            <span class="chip">Deadline alerts</span>
           </div>
           <div class="role-link">
-            <a href="#end" class="link-arrow">
-              <span>Explore now</span>
+            <a href="/register" class="link-arrow">
+              <span>Get started</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2375,15 +2375,15 @@
               </svg>
             </div>
           </div>
-          <h3 class="role-title">Direct Advertiser</h3>
-          <p class="role-body">Brands win when supply is shaped, not shuffled. Cut the clutter. Keep only what counts.</p>
+          <h3 class="role-title">Engineering Teams</h3>
+          <p class="role-body">Keep sprints focused. Delegate tickets directly from IDEs via MCP and track deliverables without meeting bloat.</p>
           <div class="role-chips">
-            <span class="chip">Brand safety</span>
-            <span class="chip">Outcome KPIs</span>
+            <span class="chip">MCP protocol</span>
+            <span class="chip">Code context</span>
           </div>
           <div class="role-link">
-            <a href="#end" class="link-arrow">
-              <span>Explore now</span>
+            <a href="/register" class="link-arrow">
+              <span>Get started</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2406,15 +2406,15 @@
               </svg>
             </div>
           </div>
-          <h3 class="role-title">Publisher</h3>
-          <p class="role-body">Stop funding buy-side margins. Keep them. Every hop takes a cut. Remove those hops.</p>
+          <h3 class="role-title">Core Committees</h3>
+          <p class="role-body">Coordinate volunteers, track multi-tier tasks, and approve milestone submissions with transparent logs.</p>
           <div class="role-chips">
-            <span class="chip">O&amp;O packaging</span>
-            <span class="chip">Audience extension</span>
+            <span class="chip">2-layer join codes</span>
+            <span class="chip">Volunteer roles</span>
           </div>
           <div class="role-link">
-            <a href="#end" class="link-arrow">
-              <span>Explore now</span>
+            <a href="/register" class="link-arrow">
+              <span>Get started</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2434,15 +2434,15 @@
               </svg>
             </div>
           </div>
-          <h3 class="role-title">Ad Tech</h3>
-          <p class="role-body">Transparency isn't a feature, it's oxygen. Leaders don't wait on inventory. They shape it all.</p>
+          <h3 class="role-title">Autonomous AI Agents</h3>
+          <p class="role-body">Connect agents as trusted peers. Let AI plan roadmaps, assign tickets, and summarize status updates.</p>
           <div class="role-chips">
-            <span class="chip">Open API</span>
-            <span class="chip">White-label</span>
+            <span class="chip">Stdio / SSE tools</span>
+            <span class="chip">Audit trails</span>
           </div>
           <div class="role-link">
-            <a href="#end" class="link-arrow">
-              <span>Explore now</span>
+            <a href="/register" class="link-arrow">
+              <span>Get started</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2452,23 +2452,23 @@
       </div>
     </section>
 
-    <!-- 8.5 Call to Action and Footer -->
+    <!-- Call to Action and Footer -->
     <section id="end">
       <!-- CTA Panel -->
       <div class="cta-panel reveal">
         <div class="cta-highlight"></div>
         <h2 class="cta-headline">
-          Start Curating<br><span class="serif">Supply-Side</span> Now!
+          Start Executing<br><span class="serif">Team Tasks</span> Now!
         </h2>
         <p class="lede cta-lede">
-          Free to start. Your first curated deal can be live before your coffee goes cold.
+          Free to start. Create your organization and delegate your first task before your coffee goes cold.
         </p>
         <div class="cta-buttons">
           <a href="/register" class="btn btn-fill">Get Started — it's Free</a>
-          <a href="#hero" class="btn btn-ghost">Book a Call</a>
+          <a href="/login" class="btn btn-ghost">Sign In to Workspace</a>
         </div>
         <div class="cta-note">
-          No card needed &nbsp;·&nbsp; Live in minutes &nbsp;·&nbsp; Cancel anytime
+          No card needed &nbsp;·&nbsp; Live in minutes &nbsp;·&nbsp; Built for student &amp; agile teams
         </div>
       </div>
 
@@ -2479,14 +2479,14 @@
           <div>
             <div class="nav-logo">
               <div class="logo-orb" style="width: calc(28 * var(--u)); height: calc(28 * var(--u));"></div>
-              <span style="font-size: calc(21 * var(--u));">Nectarline</span>
+              <span style="font-size: calc(21 * var(--u));">TaskPit</span>
             </div>
             <p class="footer-brand-p">
-              The independent studio for curating programmatic supply, from first brief to live deal.
+              The AI-native team execution platform for delegating work, coordinating teams, and delivering results.
             </p>
             <div class="chip chip-live" style="margin-top: calc(22 * var(--u));">
               <span class="dot-live"></span>
-              <span>All systems normal</span>
+              <span>All systems operational</span>
             </div>
           </div>
 
@@ -2494,31 +2494,31 @@
           <div>
             <div class="footer-col-title">PRODUCT</div>
             <ul class="footer-col-links">
-              <li><a href="#studio">Curation</a></li>
-              <li><a href="#studio">Monetization</a></li>
-              <li><a href="#studio">Forecasts</a></li>
+              <li><a href="#studio">Task Workspace</a></li>
+              <li><a href="#packs">AI Delegation</a></li>
+              <li><a href="#packs">Audit Timeline</a></li>
             </ul>
           </div>
 
-          <!-- Use Cases column -->
+          <!-- Teams column -->
           <div>
-            <div class="footer-col-title">USE CASES</div>
+            <div class="footer-col-title">TEAMS</div>
             <ul class="footer-col-links">
-              <li><a href="#uses">Media Agency</a></li>
-              <li><a href="#uses">Direct Advertiser</a></li>
-              <li><a href="#uses">Publisher</a></li>
-              <li><a href="#uses">Ad Tech</a></li>
+              <li><a href="#uses">Student Bodies</a></li>
+              <li><a href="#uses">Engineering</a></li>
+              <li><a href="#uses">Organizing Teams</a></li>
+              <li><a href="#uses">AI Agents</a></li>
             </ul>
           </div>
 
-          <!-- Channels column -->
+          <!-- Integrations column -->
           <div>
-            <div class="footer-col-title">CHANNELS</div>
+            <div class="footer-col-title">INTEGRATIONS</div>
             <ul class="footer-col-links">
-              <li><a href="#packs">CTV</a></li>
-              <li><a href="#packs">Display / Native</a></li>
-              <li><a href="#packs">DOOH</a></li>
-              <li><a href="#packs">Video / Audio</a></li>
+              <li><a href="#packs">Cursor IDE</a></li>
+              <li><a href="#packs">Claude Desktop</a></li>
+              <li><a href="#packs">REST API</a></li>
+              <li><a href="#packs">MCP Protocol</a></li>
             </ul>
           </div>
 
@@ -2526,9 +2526,9 @@
           <div>
             <div class="footer-col-title">RESOURCES</div>
             <ul class="footer-col-links">
-              <li><a href="#studio">Partner Directory</a></li>
-              <li><a href="#studio">Documentation</a></li>
-              <li><a href="#studio">System Status</a></li>
+              <li><a href="/login">Sign In</a></li>
+              <li><a href="/register">Get Started</a></li>
+              <li><a href="#studio">Platform Overview</a></li>
               <li><a href="#end">Contact Us</a></li>
             </ul>
           </div>
@@ -2536,17 +2536,17 @@
 
         <!-- Legal bar -->
         <div class="footer-legal-bar">
-          <div>©2026 Nectarline: Supply Side Studio<sup>®</sup></div>
+          <div>©2026 TaskPit: Autonomous Team Execution Platform<sup>®</sup></div>
           <div class="footer-legal-links">
             <a href="#">Privacy</a>
             <a href="#">Terms</a>
-            <a href="#">Opt Out</a>
+            <a href="#">Support</a>
           </div>
         </div>
 
         <!-- Ghosted Wordmark -->
         <div class="footer-wordmark" aria-hidden="true">
-          Nectarline
+          TaskPit
         </div>
       </footer>
     </section>
@@ -2558,7 +2558,7 @@
   <!-- ========================================== -->
   <script>
     (function() {
-      // 4. Scaling system
+      // Scaling system
       function updateScale() {
         const cw = document.documentElement.clientWidth;
         const u = cw > 820 ? (cw / 1440) : (cw / 390);
@@ -2592,7 +2592,7 @@
         window.__pointer.ty = 0;
       });
 
-      // 10. Hero entrance (Web Animations API)
+      // Hero entrance (Web Animations API)
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!prefersReduced) {
         const ease = 'cubic-bezier(.2,.75,.2,1)';
@@ -2657,7 +2657,7 @@
         observer.observe(el);
       });
 
-      // 5. Scroll Crossfade Formulas
+      // Scroll Crossfade Formulas
       function smoothstep(a, b, v) {
         const t = Math.max(0, Math.min(1, (v - a) / (b - a)));
         return t * t * (3 - 2 * t);
@@ -2716,12 +2716,11 @@
         if (pondVideo) pondVideo.remove();
       } else if (pondVideo) {
         pondVideo.play().catch(function() {
-          // Auto-play policy catch: play on first user interaction
           window.addEventListener('click', function() { pondVideo.play().catch(function(){}); }, { once: true });
         });
       }
 
-      // 9. Hero hover lens (WebGL 1 Shader on #pondfx)
+      // Hero hover lens (WebGL 1 Shader on #pondfx)
       const fxCanvas = document.getElementById('pondfx');
       let gl = null;
       try {
@@ -2999,20 +2998,18 @@
         ].join('\n');
       }
 
-      // OpenRTB 2.6 Typing Animation (id #type-trigger)
+      // TaskPit MCP Delegation Typing Animation (#type-trigger)
       const codeSnippet = [
-        '"id": "7f3a9c1e00b24d6e8a51c0ffee42d0e1",',
-        '"at": 2,',
-        '"tmax": 120,',
-        '"imp": [{',
-        '  "id": "1",',
-        '  "pmp": {',
-        '    "private_auction": 1,',
-        '    "deals": [{',
-        '      "id": "nl.pond.0428",',
-        '      "bidfloor": 4.8,',
-        '      "at": 1,',
-        '      "ext": { "priority": 1 }'
+        '"method": "tools/call",',
+        '"params": {',
+        '  "name": "create_task",',
+        '  "arguments": {',
+        '    "title": "Finalize Annual E-Summit Keynote",',
+        '    "description": "Coordinate speaker deck & slides",',
+        '    "assigneeMembershipId": "mem_01hq8e7a9b1...",',
+        '    "dueAt": "2026-11-20T18:00:00Z",',
+        '    "createdVia": "mcp"',
+        '  }'
       ].join('\n');
 
       const typedEl = document.getElementById('typed-text');
@@ -3069,7 +3066,7 @@
     const canvas = document.getElementById('koi-canvas');
     if (!canvas) throw new Error('Koi canvas missing');
 
-    // 11. Renderer & Scene
+    // Renderer & Scene
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       alpha: true,
