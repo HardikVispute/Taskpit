@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { AlertCircle, ArrowRight, Check, Loader2, Mail } from "lucide-react";
+import { AlertCircle, ArrowRight, Loader2, Mail } from "lucide-react";
 import { signUpAction } from "@/server/actions/auth.actions";
 import { GoogleButton } from "@/components/auth/google-button";
 import { AuthIntroPanel } from "@/components/auth/auth-intro-panel";

@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import Link from "next/link";
-import { AlertCircle, ArrowLeft, Check, Loader2, Mail } from "lucide-react";
+import { AlertCircle, ArrowLeft, Check, Loader2 } from "lucide-react";
 import { resetPasswordAction } from "@/server/actions/auth.actions";
 import { AuthBackgroundKoi } from "@/components/auth/auth-background-koi";
 
